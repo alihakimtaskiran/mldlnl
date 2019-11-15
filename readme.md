@@ -43,3 +43,10 @@ mldlnl---|
                                   |--save(file_name)
                                   |--restore(file_name)                                   
 </pre>
+
+<ul>
+     <li><pre><b>LinReg:</b></pre></li><b>type:object</b>
+     
+      <li><pre><b>LogReg:</b></pre></li><b>type:object</b>
+</ul>
+
