@@ -37,7 +37,7 @@ mldlnl---|
          |
          |
          |---LogReg(n_of_params)--|
-                                  |--fit(x,y,lr=0.05,iter_no=70000,loss_fun="L2",lang="en"):
+                                  |--fit(x,y,lr=0.05,iter_no=70000,loss_fun="L2",lang="en")
                                   |--get_variables()
                                   |--calc(x)
                                   |--save(file_name)
