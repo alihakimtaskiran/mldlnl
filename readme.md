@@ -46,7 +46,6 @@ mldlnl---|
 
 <ul>
      <li><pre><b>LinReg:</b></pre></li><b>type:object</b>
-     
-      <li><pre><b>LogReg:</b></pre></li><b>type:object</b>
+     <li><pre><b>LogReg:</b></pre></li><b>type:object</b>
 </ul>
 
