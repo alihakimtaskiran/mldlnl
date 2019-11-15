@@ -1,7 +1,8 @@
 <h1>Documentation</h1>
 <h2>1. What's the MLDLNL?</h2>
 <pre>  MLDLNL is a tensorflow based high level API. It facilitates creating machine learning models(for now).</pre>
-<h2>3.Installation</h2>
+
+<h2>2.Installation</h2>
 <h3>a.Requirements</h3>
 <pre>-Python
      -Numpy
@@ -15,7 +16,7 @@ Follow this steps for install the module(optional)
 <ol>
   <li>Open the terminal. After that</li>
   <li><code>git clone https://github.com/alihakimtaskiran/mldlnl.git</code></li>
-  <li><code>cd "VSM"</code></li>
+  <li><code>cd "mldlnl"</code></li>
   <li><code>sudo cp vsm.py /usr/lib/python3.6/</code></li>
   <li>If you haven't installed numpy, install the numpy with <code>pip3 install numpy</code></li>
   <li>If you haven't installed tensorflow 1.x, install the tensorflow 1.x with <code>pip3 install tensorflow==1.15.0</code></li>
