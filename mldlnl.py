@@ -62,9 +62,6 @@ class LinReg(object):
     def restore_manually(self,W,B):
         self.w=W
         self.b=B
-        
-    def get_metrics(self):
-        return array(self.metrics)
     
 class MultiLinReg(object):
     def __init__(self,n_of_params):
@@ -132,5 +129,4 @@ class MultiLinReg(object):
             file.close()
             for i in range(self.n_of_params):
                 self.__params.append(float(params_r[i]))
-    def get_metrics(self):
-        return array(self.metrics)
+
