@@ -22,3 +22,16 @@ Follow this steps for install the module(optional)
   <li>If you haven't installed tensorflow 1.x, install the tensorflow 1.x with <code>pip3 install tensorflow==1.15.0</code></li>
  </ol>
 <p>Finally, you can use the module in python3 just one lines of code:<code>import mldlnl</code></p>
+
+<h2>3.Dir() of Module</h2>
+<pre>
+mldlnl---|
+         |
+         |---LinReg--|
+                     |--fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")
+                     |--get_variables()
+                     |--calc(x)
+                     |--save(file_name)
+
+
+</pre>
