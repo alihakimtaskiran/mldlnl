@@ -23,15 +23,23 @@ Follow this steps for install the module(optional)
  </ol>
 <p>Finally, you can use the module in python3 just one lines of code:<code>import mldlnl</code></p>
 
-<h2>3.Dir() of Module</h2>
+<h2>3.Tree of Module</h2>
 <pre>
 mldlnl---|
          |
-         |---LinReg--|
-                     |--fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")
-                     |--get_variables()
-                     |--calc(x)
-                     |--save(file_name)
-
-
+         |---LinReg()--|
+         |             |--fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")
+         |             |--get_variables()
+         |             |--calc(x)
+         |             |--save(file_name)
+         |             |--restore(file_name)
+         |             |--restore_manually(weight,bias)
+         |
+         |
+         |---LogReg(n_of_params)--|
+                                  |--fit(x,y,lr=0.05,iter_no=70000,loss_fun="L2",lang="en"):
+                                  |--get_variables()
+                                  |--calc(x)
+                                  |--save(file_name)
+                                  |--restore(file_name)                                   
 </pre>
