@@ -43,26 +43,25 @@ mldlnl---|
                                   |--save(file_name)
                                   |--restore(file_name)                                   
 </pre>
-
 <ul>
      <li>
      <pre><b>LinReg:</b></pre></li>
            <pre><b>type:object</b>Linear Regression object. Use this object to create linear regression models.</pre> 
-     <ul><pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>. <code>lang</code> is language that used for getting metrics. Just English and Turkish supported. It will be removed in future version.</p>
-     <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p>
-     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p>
-     <ul><pre><b>save(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>file_n</code> is a string takes name of file. Don't add directory into the string.</p>
-     <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p>
-     <ul><pre><b>restore_manually(W,B) </b></pre></li><pre><b>type:method</b></pre><p> This function utilizes restore parameters manually. You can initialize variables by this function.</p>
+     <ul><pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>. <code>lang</code> is language that used for getting metrics. Just English and Turkish supported. It will be removed in future version.</p></ul>
+     <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></ul>
+     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p></ul>
+     <ul><pre><b>save(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>file_n</code> is a string takes name of file. Don't add directory into the string.</p></ul>
+     <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p></ul>
+     <ul><pre><b>restore_manually(W,B) </b></pre></li><pre><b>type:method</b></pre><p> This function utilizes restore parameters manually. You can initialize variables by this function.</p></ul>
      </li>
      <li>
      <pre><b>MultiLinReg(n_of_params):</b> Multi Linear Regression object. Use this object to create multi linear regression models.</pre></li> 
      <pre><b>type:object</b></pre><p> <code>n_of_params</code> is number of parameters.</p>
 <ul>
-     <pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>. <code>lang</code> is language that used for getting metrics. Just English and Turkish supported. It will be removed in future version.</p>
-     <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p>
-     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p>
-     <ul><pre><b>save(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>file_n</code> is a string takes name of file. Don't add directory into the string.</p>
-     <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p>
+     <pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>. <code>lang</code> is language that used for getting metrics. Just English and Turkish supported. It will be removed in future version.</p></ul>
+     <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></ul>
+     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p></ul>
+     <ul><pre><b>save(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>file_n</code> is a string takes name of file. Don't add directory into the string.</p></ul>
+     <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p></ul>
 </li>
 
