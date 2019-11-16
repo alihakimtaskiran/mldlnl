@@ -36,7 +36,7 @@ mldlnl---|
          |             |--restore_manually(weight,bias)
          |
          |
-         |---LogReg(n_of_params)--|
+         |---MultiLinReg(n_of_params)--|
                                   |--fit(x,y,lr=0.05,iter_no=70000,loss_fun="L2",lang="en")
                                   |--get_variables()
                                   |--calc(x)
@@ -50,7 +50,7 @@ mldlnl---|
      <ul><pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with "L1"</p>
      <ul><pre><b> </b></pre></li><pre><b>type:</b></pre>
      <ul><pre><b> </b></pre></li><pre><b>type:</b></pre>
-     <li><pre><b>LogReg:</b> Logistic Regression object. Use this object to create logistic regression models.</pre></li> 
+     <li><pre><b>MultiLinReg:</b> Multi Linear Regression object. Use this object to create multi linear regression models.</pre></li> 
            <pre><b>type:object</b></pre>
 </ul>
 
