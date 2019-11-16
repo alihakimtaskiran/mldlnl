@@ -5,7 +5,7 @@ print("Using Tensorflow backend")
 class LinReg(object):
     
     def __init__(self):
-        self.metrics=[]
+        pass
     
     def fit(self,x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en"):
         self.x=x
@@ -69,7 +69,6 @@ class MultiLinReg(object):
         self.__params=[]
         #create parameters
         self.params=[]
-        self.metrics=[]
         for _ in range(self.n_of_params+1):
            self.params.append(tf.Variable(random()))
            
@@ -98,7 +97,6 @@ class MultiLinReg(object):
                 sess.run(self.opt)
                 if i%500==0:
                     self.l=sess.run(self.loss)
-                    self.metrics.append(l)
                     if lang=="en":
                         print("Iteration",i,self.loss_fun,"Loss="+str(self.l))
                     elif lang=="tr":
@@ -129,4 +127,3 @@ class MultiLinReg(object):
             file.close()
             for i in range(self.n_of_params):
                 self.__params.append(float(params_r[i]))
-
