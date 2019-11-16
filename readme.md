@@ -17,7 +17,7 @@ Follow this steps for install the module(optional)
   <li>Open the terminal. After that</li>
   <li><code>git clone https://github.com/alihakimtaskiran/mldlnl.git</code></li>
   <li><code>cd "mldlnl"</code></li>
-  <li><code>sudo cp vsm.py /usr/lib/python3.6/</code></li>
+  <li><code>sudo cp mldlnl.py /usr/lib/python3.6/</code></li>
   <li>If you haven't installed numpy, install the numpy with <code>pip3 install numpy</code></li>
   <li>If you haven't installed tensorflow 1.x, install the tensorflow 1.x with <code>pip3 install tensorflow==1.15.0</code></li>
  </ol>
