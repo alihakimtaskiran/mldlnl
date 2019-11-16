@@ -43,6 +43,7 @@ mldlnl---|
                                   |--save(file_name)
                                   |--restore(file_name)                                   
 </pre>
+<hr>
 <ul>
      <li>
      <pre><b>LinReg:</b></pre></li>
@@ -54,6 +55,9 @@ mldlnl---|
      <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p></ul>
      <ul><pre><b>restore_manually(W,B) </b></pre></li><pre><b>type:method</b></pre><p> This function utilizes restore parameters manually. You can initialize variables by this function.</p></ul>
      </li>
+     <br>
+     <hr>
+     <br>
      <li>
      <pre><b>MultiLinReg(n_of_params):</b> Multi Linear Regression object. Use this object to create multi linear regression models.</pre></li> 
      <pre><b>type:object</b></pre><p> <code>n_of_params</code> is number of parameters.</p>
