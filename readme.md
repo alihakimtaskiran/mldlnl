@@ -81,6 +81,8 @@ mldlnl---|
      <ul><pre><b>restore(file) </b></pre></li><p><b>type:method </b>It imports parameters of perceptron from file. <code><b>file</b></code> is name of the file.</p></ul>
      
 </li>
+
+<br>
 <br>
      <hr>
      <br>
