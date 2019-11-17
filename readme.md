@@ -85,10 +85,8 @@ mldlnl---|
 <br>
      <hr>
      <br>
-     <ul>
-     <li>
+     <ul><li>
      <pre><b>tools()</b> This class contains usefull tools for data science.</pre></li> 
      <pre><b>type:class</b></pre>
-     <ul><pre><b>split_batch(x,batch_size) </b></pre></li><p><b>type:method</b> This function facilates spliting dataset into batchs.<code><b>x</b></code> is input data, <code><b>batch_size</b></code> is size of batch, it's an integer.</p></ul>
-<ul>
+     <li><pre><b>split_batch(x,batch_size) </b></pre></li><p><b>type:method</b> This function facilates spliting dataset into batchs.<code><b>x</b></code> is input data, <code><b>batch_size</b></code> is size of batch, it's an integer.</p></li>
       </ul>
