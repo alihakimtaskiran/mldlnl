@@ -1,7 +1,7 @@
 <h1>Documentation</h1>
 <h2>1. What's the MLDLNL?</h2>
 <pre>  MLDLNL is a tensorflow based high level API. It facilitates creating machine learning models(for now).</pre>
-
+<center><img src="https://raw.githubusercontent.com/alihakimtaskiran/mldlnl/master/logo.png"></center>
 <h2>2.Installation</h2>
 <h3>a.Requirements</h3>
 <pre>-Python
