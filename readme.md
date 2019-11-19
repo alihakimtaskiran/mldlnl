@@ -49,6 +49,7 @@ mldlnl---|
          |                                             |--calc(self,x,argmax=False)
          |                                             |--save(file)
          |                                             |--restore(self,file)
+         |                                             |--test(x,y)
          |
          |
          |--tools--|
@@ -91,6 +92,7 @@ mldlnl---|
      <li><pre><b>calc(x,argmax=False) </b></pre></li><p><b>type: method</b> This function feed forwards an input value. You can compute the output of perceptron.<code><b>x</b></code> is input. <code><b>argmax</b></code> is a boolean. If it's True, the function returns index of maximum value of percpetron's output. If it's False, function returns output of perceptron.</p></li>
      <li><pre><b>save(file) </b></pre></li><p><b>type:method </b>It exports parameters of perceptrons into a file<code><b>file</b></code> is name of the file.</p></li>
      <li><pre><b>restore(file) </b></pre></li><p><b>type:method </b>It imports parameters of perceptron from file. <code><b>file</b></code> is name of the file.</p></li>
+       <li><pre><b>test(x,y) </b></pre></li><p><b>type:method </b>Computes cross entropy loss and accuracy of spesific data. <code><b>x</b></code> is input and <code><b>y</b></code> is true output. Function returns <code><b>loss,accuracy</b></code></p></li>
 <br>
 <br>
      <hr>
