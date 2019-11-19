@@ -244,7 +244,11 @@ class Perceptron(object):
 
         self.__sess=tf.compat.v1.Session()
         self.__sess.run(tf.compat.v1.global_variables_initializer())
-            
+
+    def test(self,x,y):
+        acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
+        return loss,acc
+        
 class tools():
     @staticmethod
     def split_batch(x,batch_size):
@@ -261,6 +265,3 @@ class tools():
             out.append(x[index_list[i]:index_list[i+1]])
 
         return np.array(out)
-
-
-
