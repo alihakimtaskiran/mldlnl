@@ -1,5 +1,4 @@
 import tensorflow as tf
-from random import random
 from numpy import array
 import numpy as np
 print("Using Tensorflow backend")
@@ -11,8 +10,8 @@ class LinReg(object):
     def fit(self,x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en"):
         self.__x=x
         self.__y=y
-        self.__w=random()
-        self.__b=random()
+        self.__w=0.
+        self.__b=0.
         self.__loss_fun=loss_fun
         self.__lr=lr
         self.__iter_no=iter_no
@@ -66,7 +65,7 @@ class MultiLinReg(object):
         
         self.__params=[]
         for _ in range(self.__n_of_params+1):
-           self.__params.append(tf.Variable(random()))
+           self.__params.append(tf.Variable(0.1))
            
     def fit(self,x,y,lr=0.05,iter_no=70000,loss_fun="L2"):
         self.__x=x
@@ -125,11 +124,11 @@ class Perceptron(object):
         self.__neurons=neurons
         self.__weights={}
         self.__biases={}
-        self.__n_layers=len(self.__neurons)-1#number of layers
+        self.__n_layers=len(self.__neurons)-1
         for i in range(self.__n_layers):
             self.__weights[i]=tf.Variable(tf.random.normal([neurons[i],neurons[i+1]]))
             self.__biases[i]=tf.Variable(tf.random.normal([neurons[i+1]]))
-        #params has been created.Now I should define the processes
+
         self.__X=tf.compat.v1.placeholder(tf.float32,[None,self.__neurons[0]])
         self.__Y=tf.compat.v1.placeholder(tf.float32,[None,self.__neurons[-1]])
         self.__lr=tf.compat.v1.placeholder("float")
@@ -153,7 +152,7 @@ class Perceptron(object):
         self.__layers.append(tf.nn.softmax(tf.linalg.matmul(self.__layers[self.__n_layers-2],self.__weights[self.__n_layers-1])+self.__biases[self.__n_layers-1])+1e-8)
 
         
-        self.__xent=-tf.reduce_sum(self.__Y*tf.math.log(self.__layers[-1]))#self.__layers[-1] is predicted output by perceptrons
+        self.__xent=-tf.reduce_sum(self.__Y*tf.math.log(self.__layers[-1]))
 
         self.__correct_pred=tf.equal(tf.argmax(self.__Y,1),tf.argmax(self.__layers[-1],1))
         self.__accuracy=tf.reduce_mean(tf.cast(self.__correct_pred,tf.float32))
@@ -235,7 +234,7 @@ class Perceptron(object):
         self.__layers.append(tf.nn.softmax(tf.linalg.matmul(self.__layers[self.__n_layers-2],self.__weights[self.__n_layers-1])+self.__biases[self.__n_layers-1])+1e-8)
 
         
-        self.__xent=-tf.reduce_sum(self.__Y*tf.math.log(self.__layers[-1]))#self.__layers[-1] is predicted output by perceptrons
+        self.__xent=-tf.reduce_sum(self.__Y*tf.math.log(self.__layers[-1]))
 
         self.__correct_pred=tf.equal(tf.argmax(self.__Y,1),tf.argmax(self.__layers[-1],1))
         self.__accuracy=tf.reduce_mean(tf.cast(self.__correct_pred,tf.float32))
@@ -248,7 +247,8 @@ class Perceptron(object):
     def test(self,x,y):
         acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
         return loss,acc
-        
+
+
 class tools():
     @staticmethod
     def split_batch(x,batch_size):
@@ -265,3 +265,100 @@ class tools():
             out.append(x[index_list[i]:index_list[i+1]])
 
         return np.array(out)
+
+
+class ExpReg(object):
+    def __init__(self):
+        self.__X=tf.placeholder("float")
+        self.__Y=tf.placeholder("float")
+        self.__lr=tf.placeholder("float")
+
+        self.__w=tf.Variable(0.)
+        self.__model=tf.math.exp(tf.multiply(self.__X,self.__w))
+
+        self.__error=tf.reduce_sum(tf.square(self.__Y-self.__model))
+        self.__optimizer=tf.compat.v1.train.AdamOptimizer(self.__lr).minimize(self.__error)
+        
+        self.__sess=tf.Session()
+        self.__sess.run(tf.global_variables_initializer())
+    def fit(self,x,y,lr=0.01,iter_no=50000):
+        for __i in range(iter_no):
+            self.__sess.run(self.__optimizer,feed_dict={self.__X:x,self.__Y:y,self.__lr:lr})
+            if __i%100==0:
+                err=self.__sess.run(self.__error,feed_dict={self.__X:x,self.__Y:y})
+                print("Iteration",__i,"L2 Loss="+str(err))
+
+    def calc(self,x):
+        return self.__sess.run(self.__model,feed_dict={self.__X:x})
+
+    def get_variables(self):
+        return self.__sess.run(self.__w)
+
+    def save(self,n_of_file):
+        __var=self.__sess.run(self.__w)
+        with open(n_of_file,mode="w") as file:
+            file.write(str(__var))
+            file.close()
+
+    def restore(self,n_of_file):
+        with open(n_of_file) as file:
+            __inner=float(file.read())
+            file.close()
+        
+        self.__w=tf.Variable(__inner)
+        self.__model=tf.math.exp(tf.multiply(self.__w   ,self.__X))
+        self.__error=tf.reduce_sum(tf.square(self.__Y-self.__model))
+        self.__optimizer=tf.compat.v1.train.AdamOptimizer(self.__lr).minimize(self.__error)
+        self.__sess=tf.Session()
+        self.__sess.run(tf.global_variables_initializer())       
+
+
+class CExpReg(object):
+    def __init__(self):
+        self.__X=tf.placeholder("float")
+        self.__Y=tf.placeholder("float")
+        self.__lr=tf.placeholder("float")
+
+        self.__w=tf.Variable(tf.truncated_normal([4],stddev=0.1))
+        self.__model=tf.add(tf.multiply(self.__w[0],tf.math.exp(tf.add(tf.multiply(self.__w[2],self.__X),self.__w[3]))),self.__w[1])
+
+
+        self.__error=tf.reduce_sum(tf.square(self.__Y-self.__model))
+        self.__optimizer=tf.compat.v1.train.AdamOptimizer(self.__lr).minimize(self.__error)
+        
+        self.__sess=tf.Session()
+        self.__sess.run(tf.global_variables_initializer())
+    def fit(self,x,y,lr=0.01,iter_no=50000):
+        for __i in range(iter_no):
+            self.__sess.run(self.__optimizer,feed_dict={self.__X:x,self.__Y:y,self.__lr:lr})
+            if __i%100==0:
+                err=self.__sess.run(self.__error,feed_dict={self.__X:x,self.__Y:y})
+                print("Iteration",__i,"L2 Loss="+str(err))
+
+    def calc(self,x):
+        return self.__sess.run(self.__model,feed_dict={self.__X:x})
+
+    def get_variables(self):
+        return self.__sess.run(self.__w)
+
+    def save(self,n_of_file):
+        __var=self.__sess.run(self.__w)
+        with open(n_of_file,mode="w") as file:
+            __out=""
+            for __i in range(0,4):
+                __out+=str(__var[__i])+" "
+            file.write(__out[:-1])
+            file.close()
+
+    def restore(self,n_of_file):
+        with open(n_of_file) as file:
+            __inner=file.read().split(" ")
+            __inner=[float(__var) for __var in __inner]
+            file.close()
+        
+        self.__w=tf.Variable(__inner)
+        self.__model=tf.add(tf.multiply(self.__w[0],tf.math.exp(tf.add(tf.multiply(self.__w[2],self.__X),self.__w[3]))),self.__w[1])
+        self.__error=tf.reduce_sum(tf.square(self.__Y-self.__model))
+        self.__optimizer=tf.compat.v1.train.AdamOptimizer(self.__lr).minimize(self.__error)
+        self.__sess=tf.Session()
+        self.__sess.run(tf.global_variables_initializer())
