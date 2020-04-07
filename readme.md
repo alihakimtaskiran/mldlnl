@@ -44,24 +44,37 @@ mldlnl---|
          |                             |--restore(file_name)                                   
          |
          |
-         |--Perceptron(neurons,activation_fun="tanh")--|
-         |                                             |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
-         |                                             |--calc(self,x,argmax=False)
-         |                                             |--save(file)
-         |                                             |--restore(self,file)
-         |                                             |--test(x,y)
+         |---Perceptron(neurons,activation_fun="tanh")--|
+         |                                              |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
+         |                                              |--calc(self,x,argmax=False)
+         |                                              |--save(file)
+         |                                              |--restore(file)
+         |                                              |--test(x,y)
          |
          |
-         |--tools--|
-                   |--split_batch(x,batch_size)
-    
+         |---tools--|
+         |          |--split_batch(x,batch_size)
+         |
+         |
+         |---ExpReg()--|
+         |             |--fit(x,y,lr=0.01,iter_no=50000)
+         |             |--calc(x)
+         |             |--get_variables()
+         |             |--save(n_of_file)
+         |             |--restore(n_of_file)
+         |---CExpReg()--|
+         |              |--fit(x,y,lr=0.01,iter_no=50000)
+         |              |--calc(x)
+         |              |--get_variables()
+         |              |--save(n_of_file)
+         |              |--restore(n_of_file)
 
 
 </pre>
 <hr>
 <ul>
      <li>
-     <pre><b>LinReg:</b></pre></li>
+     <h3>LinReg:</h3>
            <pre><b>type:object</b>Linear Regression object. Use this object to create linear regression models.</pre> 
      <ul><pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>.</p></ul>
      <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></ul>
@@ -74,7 +87,7 @@ mldlnl---|
      <hr>
      <br>
      <li>
-     <pre><b>MultiLinReg(n_of_params):</b> Multi Linear Regression object. Use this object to create multi linear regression models.</pre></li> 
+     <h3>MultiLinReg(n_of_params)</h3> Multi Linear Regression object. Use this object to create multi linear regression models.</pre></li> 
      <pre><b>type:object</b></pre><p> <code>n_of_params</code> is number of parameters.</p>
 <ul>
      <pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> is learning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>.</p></ul>
@@ -86,7 +99,7 @@ mldlnl---|
  <br>
      <hr>
      <br>
-     <li><pre><b>Perceptron(neurons,activation_fun="tanh")</b> Perceptron object utilizes creating multi layer perceptrons with specified activation function </pre></li>
+     <li><h3>Perceptron(neurons,activation_fun="tanh")</h3> Perceptron object utilizes creating multi layer perceptrons with specified activation function </pre></li>
      <pre><b>type:object</b></pre><p> <code>neurons</code> is a list(like <code>[784,256,128,10]</code>) to represent number of neuron per layer. The list should have at least 3 elements.<code>activation_fun</code> is specified activation function for perceptron.<code>tanh</code>,<code>ReLU</code> and <code>sigmoid</code> are supported activation functions. Activation function of last layer is <code>softmax</code> independed from specified activation function.</p>
      <li><pre><b>fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.) </b></pre></li><p><b>type:method </b> <code><b>fit()</b></code> utilizes train perceptron. It uses AdamOptimizer to optimize model.<code><b>x</b></code> is input data and <code><b>y</b></code> is output data to train perceptron. You don't need to split into batchs the data.<code> Percepton </code> object has internal batch splitting system.<code><b>epochs</b></code> is training epochs.<code><b>batch_size</b></code> is default set into 200.<code><b>lr</b></code> is default set into 0.01.<code><b>keep_prob</b></code> is probibilty of retained neurons after dropout  </p></li>
      <li><pre><b>calc(x,argmax=False) </b></pre></li><p><b>type: method</b> This function feed forwards an input value. You can compute the output of perceptron.<code><b>x</b></code> is input. <code><b>argmax</b></code> is a boolean. If it's True, the function returns index of maximum value of percpetron's output. If it's False, function returns output of perceptron.</p></li>
@@ -98,7 +111,10 @@ mldlnl---|
      <hr>
      <br>
      <ul><li>
-     <pre><b>tools()</b> This class contains usefull tools for data science.</pre></li> 
+     <h3>tools()</h3> This class contains usefull tools for data science.</pre></li> 
      <pre><b>type:class</b></pre>
      <li><pre><b>split_batch(x,batch_size) </b></pre></li><p><b>type:method</b> This function facilates spliting dataset into batchs.<code><b>x</b></code> is input data, <code><b>batch_size</b></code> is size of batch, it's an integer.</p></li>
       </ul>
+  <hr>
+  <h3>ExpReg</h3>
+  
