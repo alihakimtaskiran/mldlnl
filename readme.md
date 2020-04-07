@@ -62,6 +62,8 @@ mldlnl---|
          |             |--get_variables()
          |             |--save(n_of_file)
          |             |--restore(n_of_file)
+         |
+         |
          |---CExpReg()--|
                         |--fit(x,y,lr=0.01,iter_no=50000)
                         |--calc(x)
