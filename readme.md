@@ -63,12 +63,12 @@ mldlnl---|
          |             |--save(n_of_file)
          |             |--restore(n_of_file)
          |---CExpReg()--|
-         |              |--fit(x,y,lr=0.01,iter_no=50000)
-         |              |--calc(x)
-         |              |--get_variables()
-         |              |--save(n_of_file)
-         |              |--restore(n_of_file)
-
+                        |--fit(x,y,lr=0.01,iter_no=50000)
+                        |--calc(x)
+                        |--get_variables()
+                        |--save(n_of_file)
+                        |--restore(n_of_file)
+ 
 
 </pre>
 <hr>
@@ -118,8 +118,8 @@ mldlnl---|
   <hr>
   <h3>ExpReg()</h3>
   ExpReg object utilizes creating exponential regression model. It's ideal for pandemic analysis. Number of infected poeple growth exponentially.
-  <br>
-  <img src="/formulas/expreg formula.png">
+  <br><br>
+  <img src="/formulas/expreg formula.png"><br>
   <ul>
      <li><b>type:class</b></li>
      <li><b>fit(x,y,lr=0.01,iter_no=50000)</b><pre><b>type:method</b></pre> It optimizes the model with dataset. <code>x</code> is dataset's x values and <code>y</code> is y values of dataset.<code>lr</code> is learning rate set as 0.01. <code>iter_no</code> is training steps for optimizer.</li>
@@ -133,8 +133,8 @@ mldlnl---|
    <br>
      <h3>CExpReg()</h3>
   CExpReg object utilizes creating exponential regression model. It's a bit complex than exponential regression. It has more variables than ExpReg. It's ideal for pandemic analysis more than ExpReg.
-  <br>
-  <img src="/formulas/cexpreg.png">
+  <br><br>
+  <img src="/formulas/cexpreg.png"><br>
   <ul>
      <li><b>type:class</b></li>
      <li><b>fit(x,y,lr=0.01,iter_no=50000)</b><pre><b>type:method</b></pre> It optimizes the model with dataset. <code>x</code> is dataset's x values and <code>y</code> is y values of dataset.<code>lr</code> is learning rate set as 0.01. <code>iter_no</code> is training steps for optimizer.</li>
