@@ -117,7 +117,9 @@ mldlnl---|
       </ul>
   <hr>
   <h3>ExpReg</h3>
-  T
+  ExpReg object utilizes creating exponential regression model.
+  <math><msup><mi>e</mi><mrow><mi>w</mi><mo>*</mo><mi>X</mi></mrow></msup></math>
   <ul>
      <li><b>type:class</b></li>
+     <li><b>
   </ul>
