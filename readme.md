@@ -117,4 +117,6 @@ mldlnl---|
       </ul>
   <hr>
   <h3>ExpReg</h3>
-  
+  <ul>
+     <li><b>type:method</b></li>
+  </ul>
