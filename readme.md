@@ -4,12 +4,12 @@
 <center><img src="https://raw.githubusercontent.com/alihakimtaskiran/mldlnl/master/logo.png"></center>
 <h2>2.Installation</h2>
 <h3>a.Requirements</h3>
-<pre>-Python
+<pre>-Python3.5 or later
      -Numpy
      -Tensorflow 1.x.x</pre>
 <h3>·Installation Steps(OS independent)</h3>
 <ol>
-     <li>Open the terminal/cmd. After that <code>pip install -i https://test.pypi.org/simple/ mldlnl</code></li>
+     <li>Open the terminal/cmd. After that <code>pip install -i https://test.pypi.org/simple/ mldlnl==3.0</code></li>
      <li>Done</li>
   <li>
 <h2>3.Tree of Module</h2>
