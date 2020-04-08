@@ -4,14 +4,25 @@
 <center><img src="https://raw.githubusercontent.com/alihakimtaskiran/mldlnl/master/logo.png"></center>
 <h2>2.Installation</h2>
 <h3>a.Requirements</h3>
-<pre>-Python3.5 or later
+<pre>-Python
      -Numpy
      -Tensorflow 1.x.x</pre>
-<h3>·Installation Steps(OS independent)</h3>
+<h3>b.Installation Steps</h3>
+
+<font size="7"><b><p>  You can run the module including into working directory. 
+You can also install it into python3. After the installation, you can run the module without including into working directory.</p></b></font>
+Follow this steps for install the module(optional)
+<h3>·Installation Steps for Linux</h3>
 <ol>
-     <li>Open the terminal/cmd. After that <code>pip install -i https://test.pypi.org/simple/ mldlnl==3.0</code></li>
-     <li>Done</li>
-  <li>
+  <li>Open the terminal. After that</li>
+  <li><code>git clone https://github.com/alihakimtaskiran/mldlnl.git</code></li>
+  <li><code>cd "mldlnl"</code></li>
+  <li><code>sudo cp mldlnl.py /usr/lib/python3.6/</code></li>
+  <li>If you haven't installed numpy, install the numpy with <code>pip3 install numpy</code></li>
+  <li>If you haven't installed tensorflow 1.x, install the tensorflow 1.x with <code>pip3 install tensorflow==1.15.0</code></li>
+ </ol>
+<p>Finally, you can use the module in python3 just one lines of code:<code>import mldlnl</code></p>
+
 <h2>3.Tree of Module</h2>
 <pre>
 mldlnl---|
@@ -51,8 +62,6 @@ mldlnl---|
          |             |--get_variables()
          |             |--save(n_of_file)
          |             |--restore(n_of_file)
-         |
-         |
          |---CExpReg()--|
                         |--fit(x,y,lr=0.01,iter_no=50000)
                         |--calc(x)
