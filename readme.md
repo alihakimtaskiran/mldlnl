@@ -10,6 +10,7 @@
 <h3>·Installation Steps(OS independent)</h3>
 <ol>
      <li>Open the terminal. After that <code>pip install -i https://test.pypi.org/simple/ mldlnl</code></li>
+     <li>Done</li>
   <li>
 <h2>3.Tree of Module</h2>
 <pre>
