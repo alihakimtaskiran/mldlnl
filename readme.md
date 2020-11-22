@@ -78,7 +78,7 @@ mldlnl---|
            <pre><b>type:object</b>Linear Regression object. Use this object to create linear regression models.</pre> 
      <ul><pre><b>fit(x,y,lr=0.1,iter_no=80000,loss_fun="L2",lang="en")</b></pre></li><p><b>type:method</b> fit() optimizes model with specified loss function. It uses <code>tf.train.AdamOptimizer to find optimum weight and bias</code>.<code>x</code> is input,<code>y</code> is output. <code>lr</code> islearning rate, it's default 0.1.<code>iter_no</code> is number of train step.<code>loss_fun</code> is a string represents loss function.It's default L2, you can also use L1 with <code>"L1"</code>.</p></ul>
      <ul><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></ul>
-     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p></ul>
+     <ul><pre><b>calc(x) </b></pre></li><pre><b>type:method</b></pre><p> Computes the output value with spesific input. </p></ul>
      <ul><pre><b>save(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>file_n</code> is a string takes name of file. Don't add directory into the string.</p></ul>
      <ul><pre><b>restore(file_n) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>file_n</code> is a string takes name of file. Don't add directory into the string. </p></ul>
      <ul><pre><b>restore_manually(W,B) </b></pre></li><pre><b>type:method</b></pre><p> This function utilizes restore parameters manually. You can initialize variables by this function.</p></ul>
@@ -123,7 +123,7 @@ mldlnl---|
   <ul>
      <li><b>type:class</b></li>
      <li><b>fit(x,y,lr=0.01,iter_no=50000)</b><pre><b>type:method</b></pre> It optimizes the model with dataset. <code>x</code> is dataset's x values and <code>y</code> is y values of dataset.<code>lr</code> is learning rate set as 0.01. <code>iter_no</code> is training steps for optimizer.</li>
-     <li><pre><b>calc(x) </b></pre><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p></li>
+     <li><pre><b>calc(x) </b></pre><pre><b>type:method</b></pre><p> Computes the output value with spesific input. </p></li>
   <li><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></li>
        <li><pre><b>save(n_of_file) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>n_of_file</code> is a string takes name of file. Don't add directory into the string.</p></li>
      <li><pre><b>restore(n_of_file) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>n_of_file</code> is a string takes name of file. Don't add directory into the string. </p></li>
@@ -138,7 +138,7 @@ mldlnl---|
   <ul>
      <li><b>type:class</b></li>
      <li><b>fit(x,y,lr=0.01,iter_no=50000)</b><pre><b>type:method</b></pre> It optimizes the model with dataset. <code>x</code> is dataset's x values and <code>y</code> is y values of dataset.<code>lr</code> is learning rate set as 0.01. <code>iter_no</code> is training steps for optimizer.</li>
-     <li><pre><b>calc(x) </b></pre><pre><b>type:method</b></pre><p> Computes the output valur with spesific input. </p></li>
+     <li><pre><b>calc(x) </b></pre><pre><b>type:method</b></pre><p> Computes the output value with spesific input. </p></li>
   <li><pre><b>get_variables() </b></pre></li><p><b>type:method</b> The function exports variables and returns a tuple<code>weight,bias)</code></p></li>
        <li><pre><b>save(n_of_file) </b></pre></li><pre><b>type:method</b></pre><p>Exports and saves parametrs into a file.<code>n_of_file</code> is a string takes name of file. Don't add directory into the string.</p></li>
      <li><pre><b>restore(n_of_file) </b></pre></li><pre><b>type:method</b></pre><p>Imports and restores parameters from file.<code>n_of_file</code> is a string takes name of file. Don't add directory into the string. </p></li>
