@@ -46,7 +46,7 @@ mldlnl---|
          |
          |---Perceptron(neurons,activation_fun="tanh")--|
          |                                              |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
-         |                                              |--calc(self,x,argmax=False)
+         |                                              |--calc(x,argmax=False)
          |                                              |--save(file)
          |                                              |--restore(file)
          |                                              |--test(x,y)
