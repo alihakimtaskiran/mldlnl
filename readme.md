@@ -17,7 +17,7 @@ Follow this steps for install the module(optional)
   <li>Open the terminal. After that</li>
   <li><code>git clone https://github.com/alihakimtaskiran/mldlnl.git</code></li>
   <li><code>cd "mldlnl"</code></li>
-  <li><code>sudo cp mldlnl.py /usr/lib/python3.6/</code></li>
+  <li><code>sudo cp mldlnl.py /usr/lib/python[version]</code></li>
   <li>If you haven't installed numpy, install the numpy with <code>pip3 install numpy</code></li>
   <li>If you haven't installed tensorflow 1.x, install the tensorflow 1.x with <code>pip3 install tensorflow==1.15.0</code></li>
  </ol>
@@ -44,12 +44,13 @@ mldlnl---|
          |                             |--restore(file_name)                                   
          |
          |
-         |---Perceptron(neurons,activation_fun="tanh")--|
+         |---Perceptron(neurons=[1,1,1],activation_fun="tanh")--|
          |                                              |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
          |                                              |--calc(x,argmax=False)
          |                                              |--save(file)
          |                                              |--restore(file)
          |                                              |--test(x,y)
+         |                                              |--properties()
          |
          |
          |---tools--|
@@ -106,6 +107,7 @@ mldlnl---|
      <li><pre><b>save(file) </b></pre></li><p><b>type:method </b>It exports parameters of perceptrons into a file<code><b>file</b></code> is name of the file.</p></li>
      <li><pre><b>restore(file) </b></pre></li><p><b>type:method </b>It imports parameters of perceptron from file. <code><b>file</b></code> is name of the file.</p></li>
        <li><pre><b>test(x,y) </b></pre></li><p><b>type:method </b>Computes cross entropy loss and accuracy of spesific data. <code><b>x</b></code> is input and <code><b>y</b></code> is true output. Function returns <code><b>loss,accuracy</b></code></p></li>
+       <li><pre><b>properties() </b></pre></li><p><b>type:method </b>Shows number of neurons in each layer and activation function. Function returns a tuple <code><b>neurons, activation function</b></code></p></li>
 <br>
 <br>
      <hr>
