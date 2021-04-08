@@ -1,7 +1,7 @@
 import tensorflow as tf
 from numpy import array
 import numpy as np
-print("Using Tensorflow backend")
+print("Interacting with reality")
 class LinReg(object):
     
     def __init__(self):
@@ -120,7 +120,8 @@ class MultiLinReg(object):
                 self.____params.append(float(params_r[i]))
 
 class Perceptron(object):
-    def __init__(self,neurons,activation_fun="tanh"):
+    def __init__(self,neurons=[1,1,1],activation_fun="tanh"):
+        self.__activation_fun=activation_fun.lower()
         self.__neurons=neurons
         self.__weights={}
         self.__biases={}
@@ -133,7 +134,7 @@ class Perceptron(object):
         self.__Y=tf.compat.v1.placeholder(tf.float32,[None,self.__neurons[-1]])
         self.__lr=tf.compat.v1.placeholder("float")
         self.__pkeep=tf.compat.v1.placeholder("float")
-
+        
         if activation_fun.lower()=="tanh":
             self.__activator=tf.nn.tanh
         elif activation_fun.lower()=="relu":
@@ -142,8 +143,7 @@ class Perceptron(object):
             self.__activator=tf.nn.sigmoid
         else:
             self.__activator=tf.nn.tanh
-
-            
+        
         self.__layers=[]
         self.__layers.append(tf.nn.dropout(self.__activator(tf.linalg.matmul(self.__X,self.__weights[0])+self.__biases[0]),rate=1-self.__pkeep))
         for i in range(1,self.__n_layers-1):
@@ -161,8 +161,7 @@ class Perceptron(object):
 
         self.__sess=tf.compat.v1.Session()
         self.__sess.run(tf.compat.v1.global_variables_initializer())
-        
-        
+
     def fit(self,x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.):
         data_x=tools.split_batch(x,batch_size)
         data_y=tools.split_batch(y,batch_size)
@@ -192,7 +191,12 @@ class Perceptron(object):
             np.save("b"+str(i),self.__sess.run(self.__biases[i]))
 
         __meta=open("metadata","w")
-        __meta.write(str(self.__n_layers))
+        __meta.write(str(self.__n_layers)+"\n")
+        __meta.write(self._activation_fun.lower())
+        
+        for k in range(len(self.__neurons)):
+            __meta.write("\n"+str(self.__neurons[k]))
+        
         __meta.close()
         
         zip_=__z.ZipFile(file,"w")
@@ -214,18 +218,42 @@ class Perceptron(object):
         import zipfile as __z
         z_=__z.ZipFile(file)
         z_.extractall()
-        with open("metadata","r") as d:
-            self.__n_layers=int(d.read())
-            
-        del self.__weights,self.__biases
+        __meta=open("metadata","r").readlines()
+        self.__n_layers=int(__meta[0][:-1])
+        activation_fun=__meta[1][:-1]
+        self.__activation_fun=activation_fun
+        self.__neurons=[]
+
+        for __i in __meta[2:]:
+            self.__neurons.append(int(__i[:-1]))
+        
+        self.__neurons[-1]=int(__meta[-1])
+
+        
+        del __meta
         self.__weights,self.__biases={},{}
+        self.__n_layers=len(self.__neurons)-1
+
         
         for i in range(self.__n_layers):
             self.__weights[i]=tf.Variable(np.load("w"+str(i)+".npy"))
             __os.remove("w"+str(i)+".npy")
             self.__biases[i]=tf.Variable(np.load("b"+str(i)+".npy"))
             __os.remove("b"+str(i)+".npy")
-
+        self.__X=tf.compat.v1.placeholder(tf.float32,[None,self.__neurons[0]])
+        self.__Y=tf.compat.v1.placeholder(tf.float32,[None,self.__neurons[-1]])
+        self.__lr=tf.compat.v1.placeholder("float")
+        self.__pkeep=tf.compat.v1.placeholder("float")
+        
+        if activation_fun=="tanh":
+            self.__activator=tf.nn.tanh
+        elif activation_fun=="relu":
+            self.__activator=tf.nn.relu
+        elif activation_fun=="sigmoid":
+            self.__activator=tf.nn.sigmoid
+        else:
+            self.__activator=tf.nn.tanh
+        
         self.__layers=[]
         self.__layers.append(tf.nn.dropout(self.__activator(tf.linalg.matmul(self.__X,self.__weights[0])+self.__biases[0]),rate=1-self.__pkeep))
         for i in range(1,self.__n_layers-1):
@@ -243,11 +271,16 @@ class Perceptron(object):
 
         self.__sess=tf.compat.v1.Session()
         self.__sess.run(tf.compat.v1.global_variables_initializer())
-
+    
     def test(self,x,y):
         acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
         return loss,acc
-
+    
+    def test(self,x,y):
+        acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
+        return loss,acc
+    def properties(self):
+        return (self.__neurons,self.__activation_fun)
 
 class tools():
     @staticmethod
@@ -362,3 +395,5 @@ class CExpReg(object):
         self.__optimizer=tf.compat.v1.train.AdamOptimizer(self.__lr).minimize(self.__error)
         self.__sess=tf.Session()
         self.__sess.run(tf.global_variables_initializer())
+
+print("Using Tensorflow backend")
