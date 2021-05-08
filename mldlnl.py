@@ -1,6 +1,7 @@
 import tensorflow as tf
 from numpy import array
 import numpy as np
+import warnings
 print("Interacting with reality")
 class LinReg(object):
     
@@ -126,6 +127,8 @@ class Perceptron(object):
         self.__weights={}
         self.__biases={}
         self.__n_layers=len(self.__neurons)-1
+        if self.__n_layers<2:
+            raise AttributeError("Perceptron must have at least 3 layers")
         for i in range(self.__n_layers):
             self.__weights[i]=tf.Variable(tf.random.normal([neurons[i],neurons[i+1]]))
             self.__biases[i]=tf.Variable(tf.random.normal([neurons[i+1]]))
@@ -143,6 +146,7 @@ class Perceptron(object):
             self.__activator=tf.nn.sigmoid
         else:
             self.__activator=tf.nn.tanh
+            raise AttributeError(activation_fun+" has not been defined yet; use tanh, relu or sigmoid instead")
         
         self.__layers=[]
         self.__layers.append(tf.nn.dropout(self.__activator(tf.linalg.matmul(self.__X,self.__weights[0])+self.__biases[0]),rate=1-self.__pkeep))
