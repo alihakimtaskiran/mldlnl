@@ -279,10 +279,7 @@ class Perceptron(object):
     def test(self,x,y):
         acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
         return loss,acc
-    
-    def test(self,x,y):
-        acc,loss=self.__sess.run([self.__accuracy,self.__xent],feed_dict={self.__X:x,self.__Y:y,self.__pkeep:1.})
-        return loss,acc
+
     def properties(self):
         return (self.__neurons,self.__activation_fun)
 
