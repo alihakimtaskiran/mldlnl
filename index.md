@@ -9,7 +9,7 @@
      -Tensorflow 1.x.x</pre>
 <h3>b.Installation Steps</h3>
 
-<font size="7"><b><p>  You can run the module including into working directory. 
+<font size="4"><b><p>  You can run the module including into working directory. 
 You can also install it into python3. After the installation, you can run the module without including into working directory.</p></b></font>
 Follow this steps for install the module(optional)
 <h3>·Installation Steps for Linux</h3>
