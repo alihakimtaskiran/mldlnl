@@ -45,12 +45,12 @@ mldlnl---|
          |
          |
          |---Perceptron(neurons=[1,1,1],activation_fun="tanh")--|
-         |                                              |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
-         |                                              |--calc(x,argmax=False)
-         |                                              |--save(file)
-         |                                              |--restore(file)
-         |                                              |--test(x,y)
-         |                                              |--properties()
+         |                                                      |--fit(x,y,epochs=5,batch_size=200,lr=0.01,keep_prob=1.)
+         |                                                      |--calc(x,argmax=False)
+         |                                                      |--save(file)
+         |                                                      |--restore(file)
+         |                                                      |--test(x,y)
+         |                                                      |--properties()
          |
          |
          |---tools--|
@@ -63,6 +63,7 @@ mldlnl---|
          |             |--get_variables()
          |             |--save(n_of_file)
          |             |--restore(n_of_file)
+         |
          |---CExpReg()--|
                         |--fit(x,y,lr=0.01,iter_no=50000)
                         |--calc(x)
